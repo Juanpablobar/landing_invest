@@ -12,9 +12,38 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 import data from "./data";
-import { fade, makeStyles } from "@material-ui/core/styles";
+import { fade, makeStyles, withStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
+
+
+const BootstrapButton = withStyles({
+  root: {
+    boxShadow: 'none',
+    textTransform: 'none',
+    fontSize: 16,
+    padding: '6px 12px',
+    border: '1px solid',
+    lineHeight: 1.5,
+    backgroundColor: '#006853',
+    borderColor: '#006853',
+    borderRight:'14px',
+    borderLeft:'14px',
+    
+    '&:hover': {
+      backgroundColor: '#015645',
+      borderColor: '#015645',
+      boxShadow: 'none',
+    },
+    '&:active': {
+      boxShadow: 'none',
+      backgroundColor: '#025040',
+      borderColor: '#025040',
+    },
+  },
+})(Button);
+
+
 
 function Copyright() {
   return (
@@ -28,6 +57,8 @@ function Copyright() {
     </Typography>
   );
 }
+
+
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -70,6 +101,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       display: "block",
     },
+    fontFamily:"Open Sans"
   },
   search: {
     position: "relative",
@@ -144,29 +176,29 @@ export default function App() {
 
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
+            <BootstrapButton aria-label="show 4 new mails" color="inherit">
               <Badge color="secondary">
                 <Typography className={classes.title} variant="h6" noWrap>
                   Cursos
                 </Typography>
               </Badge>
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
+            </BootstrapButton>
+            <BootstrapButton aria-label="show 17 new notifications" color="inherit">
               <Typography className={classes.title} variant="h6" noWrap>
                 Acerca de
               </Typography>
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
+            </BootstrapButton>
+            <BootstrapButton aria-label="show 17 new notifications" color="inherit">
               <Typography className={classes.title} variant="h6" noWrap>
                 Contacto
               </Typography>
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
+            </BootstrapButton>
+            <BootstrapButton aria-label="show 17 new notifications" color="inherit">
               <Typography className={classes.title} variant="h6" noWrap>
                 Cursos Online
               </Typography>
-            </IconButton>
-            <IconButton
+            </BootstrapButton>
+            <BootstrapButton
               edge="end"
               aria-label="account of current user"
               aria-haspopup="true"
@@ -175,7 +207,7 @@ export default function App() {
               <Typography className={classes.title} variant="h6" noWrap>
                 Login
               </Typography>
-            </IconButton>
+            </BootstrapButton>
           </div>
           <div className={classes.sectionMobile}>
             <IconButton

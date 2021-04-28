@@ -1,5 +1,5 @@
 const data = {
-    nombre: "Investing Academy"
+    nombre: "INVESTOR ACADEMY"
 }
 
 export default data;
