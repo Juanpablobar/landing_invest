@@ -15,7 +15,7 @@ import data from "./data";
 import { fade, makeStyles, withStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
-import Carrousel from "./components/Carrousel"
+import Carrousel from "./components/Carrousel";
 
 export default function App() {
   const size = useWindowSize();
@@ -31,9 +31,6 @@ export default function App() {
       padding: 10,
       alignItems: "center",
       justifyContent: "center",
-
-
-      
     },
     heroButtons: {
       marginTop: theme.spacing(4),
@@ -68,7 +65,7 @@ export default function App() {
       [theme.breakpoints.up("sm")]: {
         display: "block",
       },
-      fontFamily:"Open Sans"
+      fontFamily: "Open Sans",
     },
     search: {
       position: "relative",
@@ -123,7 +120,6 @@ export default function App() {
 
   const classes = useStyles();
 
-
   return (
     <React.Fragment>
       <CssBaseline />
@@ -132,7 +128,6 @@ export default function App() {
           style={{
             flex: 1,
             flexDirection: "row",
-            alignContent: "space-between",
           }}
         >
           <Typography className={classes.title} variant="h6" noWrap>
@@ -143,24 +138,29 @@ export default function App() {
           <div className={classes.sectionDesktop}>
             <BootstrapButton aria-label="show 4 new mails" color="inherit">
               <Badge color="secondary">
-                <Typography className={classes.title} variant="h6" noWrap>
+                <Typography
+                  className={classes.title}
+                  variant="subtitle1"
+                  noWrap
+                >
                   Cursos
                 </Typography>
               </Badge>
             </BootstrapButton>
-            <BootstrapButton aria-label="show 17 new notifications" color="inherit">
+            <BootstrapButton
+              aria-label="show 17 new notifications"
+              color="inherit"
+            >
               <Typography className={classes.title} variant="h6" noWrap>
                 Acerca de
               </Typography>
             </BootstrapButton>
-            <BootstrapButton aria-label="show 17 new notifications" color="inherit">
+            <BootstrapButton
+              aria-label="show 17 new notifications"
+              color="inherit"
+            >
               <Typography className={classes.title} variant="h6" noWrap>
                 Contacto
-              </Typography>
-            </BootstrapButton>
-            <BootstrapButton aria-label="show 17 new notifications" color="inherit">
-              <Typography className={classes.title} variant="h6" noWrap>
-                Cursos Online
               </Typography>
             </BootstrapButton>
             <BootstrapButton
@@ -179,52 +179,25 @@ export default function App() {
               aria-label="show more"
               aria-haspopup="true"
               color="inherit"
-            >
-           
-            </IconButton>
+            ></IconButton>
           </div>
         </Toolbar>
       </AppBar>
       <main>
-        {/* Hero unit */}
+        {/* Carrousel */}
         <div className={classes.heroContent}>
-            <Carrousel/>
+          <Carrousel />
         </div>
-        <Container className={classes.cardGrid} maxWidth="md">
-          {/* End hero unit */}
-          <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
-                    title="Image title"
-                  />
-                  <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Heading
-                    </Typography>
-                    <Typography>
-                      This is a media card. You can use this section to describe
-                      the content.
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      View
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
+        {/* Cursos */}
+        <div style={{ height: size.height, backgroundColor: "#bed6ce" }}></div>
+        {/* Acerca de */}
+        <div style={{ height: size.height }}></div>
+        {/* Contacto */}
+        <div style={{ height: size.height, backgroundColor: "#bed6ce" }}></div>
+        {/* login */}
+        <div style={{ height: size.height, backgroundColor: "#222222" }}></div>
       </main>
-      {/* Footer */}
+      <div></div>
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
           Footer
@@ -246,26 +219,26 @@ export default function App() {
 
 const BootstrapButton = withStyles({
   root: {
-    boxShadow: 'none',
-    textTransform: 'none',
+    boxShadow: "none",
+    textTransform: "none",
     fontSize: 16,
-    padding: '6px 12px',
-    border: '1px solid',
+    padding: "6px 12px",
+    border: "1px solid",
     lineHeight: 1.5,
-    backgroundColor: '#006853',
-    borderColor: '#006853',
-    borderRight:'14px',
-    borderLeft:'14px',
-    
-    '&:hover': {
-      backgroundColor: '#015645',
-      borderColor: '#015645',
-      boxShadow: 'none',
+    backgroundColor: "#006853",
+    borderColor: "#006853",
+    borderRight: "14px",
+    borderLeft: "14px",
+
+    "&:hover": {
+      backgroundColor: "#015645",
+      borderColor: "#015645",
+      boxShadow: "none",
     },
-    '&:active': {
-      boxShadow: 'none',
-      backgroundColor: '#025040',
-      borderColor: '#025040',
+    "&:active": {
+      boxShadow: "none",
+      backgroundColor: "#025040",
+      borderColor: "#025040",
     },
   },
 })(Button);
@@ -283,11 +256,7 @@ function Copyright() {
   );
 }
 
-
-
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-
 
 function useWindowSize() {
   // Initialize state with undefined width/height so server and client renders match
