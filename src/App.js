@@ -16,6 +16,11 @@ import { fade, makeStyles, withStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
 import Carrousel from "./components/Carrousel";
+import Fab from "@material-ui/core/Fab";
+import AddIcon from "@material-ui/icons/Add";
+import EditIcon from "@material-ui/icons/Edit";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import NavigationIcon from "@material-ui/icons/Navigation";
 
 export default function App() {
   const size = useWindowSize();
@@ -141,13 +146,13 @@ export default function App() {
           }}
         >
           <BootstrapButton
-              onClick={() => routeChange("")}
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-          <Typography className={classes.title} variant="h6" noWrap>
-            {data.nombre}
-          </Typography>
+            onClick={() => routeChange("")}
+            aria-label="show 4 new mails"
+            color="inherit"
+          >
+            <Typography className={classes.title} variant="h6" noWrap>
+              {data.nombre}
+            </Typography>
           </BootstrapButton>
 
           <div className={classes.grow} />
@@ -219,20 +224,19 @@ export default function App() {
           style={{ height: size.height, backgroundColor: "#bed6ce" }}
         ></div>
         {/* Acerca de */}
-        <div 
-        id="about"
-        name="about"
-        style={{ height: size.height }}></div>
+        <div id="about" name="about" style={{ height: size.height }}></div>
         {/* Contacto */}
-        <div 
-        id="contact"
-        name="contact"
-        style={{ height: size.height, backgroundColor: "#bed6ce" }}></div>
+        <div
+          id="contact"
+          name="contact"
+          style={{ height: size.height, backgroundColor: "#bed6ce" }}
+        ></div>
         {/* login */}
-        <div 
-        id="login"
-        name="login"
-        style={{ height: size.height, backgroundColor: "#222222" }}></div>
+        <div
+          id="login"
+          name="login"
+          style={{ height: size.height, backgroundColor: "#222222" }}
+        ></div>
       </main>
       <div></div>
       <footer className={classes.footer}>
@@ -250,7 +254,44 @@ export default function App() {
         <Copyright />
       </footer>
       {/* End footer */}
+      <div
+        style={{
+          margin: 0,
+          top: "auto",
+          right: 20,
+          bottom: 20,
+          left: "auto",
+          position: "fixed",
+        }}
+      >
+        {FloatingActionButton()}
+      </div>
     </React.Fragment>
+  );
+}
+
+function FloatingActionButton() {
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      "& > *": {
+        margin: theme.spacing(1),
+      },
+    },
+    extendedIcon: {
+      marginRight: theme.spacing(1),
+    },
+  }));
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root1}>
+      <Fab style={{backgroundColor:"#fff"}}  aria-label="whatsapp">
+      <CardMedia
+        image={"../whatsapp.png"}
+        style={{width:40,height:40}}
+      />
+      </Fab>
+    </div>
   );
 }
 
