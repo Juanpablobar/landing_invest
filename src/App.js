@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
@@ -15,149 +15,114 @@ import data from "./data";
 import { fade, makeStyles, withStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
-
-
-const BootstrapButton = withStyles({
-  root: {
-    boxShadow: 'none',
-    textTransform: 'none',
-    fontSize: 16,
-    padding: '6px 12px',
-    border: '1px solid',
-    lineHeight: 1.5,
-    backgroundColor: '#006853',
-    borderColor: '#006853',
-    borderRight:'14px',
-    borderLeft:'14px',
-    
-    '&:hover': {
-      backgroundColor: '#015645',
-      borderColor: '#015645',
-      boxShadow: 'none',
-    },
-    '&:active': {
-      boxShadow: 'none',
-      backgroundColor: '#025040',
-      borderColor: '#025040',
-    },
-  },
-})(Button);
-
-
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
-
-
-const useStyles = makeStyles((theme) => ({
-  icon: {
-    marginRight: theme.spacing(2),
-  },
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
-  },
-  heroButtons: {
-    marginTop: theme.spacing(4),
-  },
-  cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8),
-  },
-  card: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-  },
-  cardMedia: {
-    paddingTop: "56.25%", // 16:9
-  },
-  cardContent: {
-    flexGrow: 1,
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
-  },
-  grow: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    display: "none",
-    [theme.breakpoints.up("sm")]: {
-      display: "block",
-    },
-    fontFamily:"Open Sans"
-  },
-  search: {
-    position: "relative",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    "&:hover": {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
-    },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(3),
-      width: "auto",
-    },
-  },
-  searchIcon: {
-    padding: theme.spacing(0, 2),
-    height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  inputRoot: {
-    color: "inherit",
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "20ch",
-    },
-  },
-  sectionDesktop: {
-    display: "none",
-    [theme.breakpoints.up("md")]: {
-      display: "flex",
-    },
-  },
-  sectionMobile: {
-    display: "flex",
-    [theme.breakpoints.up("md")]: {
-      display: "none",
-    },
-  },
-}));
-
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+import Carrousel from "./components/Carrousel"
 
 export default function App() {
+  const size = useWindowSize();
+
+  const useStyles = makeStyles((theme) => ({
+    icon: {
+      marginRight: theme.spacing(2),
+    },
+    heroContent: {
+      margin: "auto",
+      minWidth: 275,
+      width: size.width - 25,
+      padding: 10,
+      alignItems: "center",
+      justifyContent: "center",
+
+
+      
+    },
+    heroButtons: {
+      marginTop: theme.spacing(4),
+    },
+    cardGrid: {
+      paddingTop: theme.spacing(8),
+      paddingBottom: theme.spacing(8),
+    },
+    card: {
+      height: "100%",
+      display: "flex",
+      flexDirection: "column",
+    },
+    cardMedia: {
+      paddingTop: "56.25%", // 16:9
+    },
+    cardContent: {
+      flexGrow: 1,
+    },
+    footer: {
+      backgroundColor: theme.palette.background.paper,
+      padding: theme.spacing(6),
+    },
+    grow: {
+      flexGrow: 1,
+    },
+    menuButton: {
+      marginRight: theme.spacing(2),
+    },
+    title: {
+      display: "none",
+      [theme.breakpoints.up("sm")]: {
+        display: "block",
+      },
+      fontFamily:"Open Sans"
+    },
+    search: {
+      position: "relative",
+      borderRadius: theme.shape.borderRadius,
+      backgroundColor: fade(theme.palette.common.white, 0.15),
+      "&:hover": {
+        backgroundColor: fade(theme.palette.common.white, 0.25),
+      },
+      marginRight: theme.spacing(2),
+      marginLeft: 0,
+      width: "100%",
+      [theme.breakpoints.up("sm")]: {
+        marginLeft: theme.spacing(3),
+        width: "auto",
+      },
+    },
+    searchIcon: {
+      padding: theme.spacing(0, 2),
+      height: "100%",
+      position: "absolute",
+      pointerEvents: "none",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    inputRoot: {
+      color: "inherit",
+    },
+    inputInput: {
+      padding: theme.spacing(1, 1, 1, 0),
+      // vertical padding + font size from searchIcon
+      paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+      transition: theme.transitions.create("width"),
+      width: "100%",
+      [theme.breakpoints.up("md")]: {
+        width: "20ch",
+      },
+    },
+    sectionDesktop: {
+      display: "none",
+      [theme.breakpoints.up("md")]: {
+        display: "flex",
+      },
+    },
+    sectionMobile: {
+      display: "flex",
+      [theme.breakpoints.up("md")]: {
+        display: "none",
+      },
+    },
+  }));
+
   const classes = useStyles();
+
 
   return (
     <React.Fragment>
@@ -215,9 +180,7 @@ export default function App() {
               aria-haspopup="true"
               color="inherit"
             >
-              <Typography className={classes.title} variant="h6" noWrap>
-                Material-UI
-              </Typography>
+           
             </IconButton>
           </div>
         </Toolbar>
@@ -225,41 +188,7 @@ export default function App() {
       <main>
         {/* Hero unit */}
         <div className={classes.heroContent}>
-          <Container maxWidth="sm">
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="textPrimary"
-              gutterBottom
-            >
-              Album layout
-            </Typography>
-            <Typography
-              variant="h5"
-              align="center"
-              color="textSecondary"
-              paragraph
-            >
-              Something short and leading about the collection below—its
-              contents, the creator, etc. Make it short and sweet, but not too
-              short so folks don&apos;t simply skip over it entirely.
-            </Typography>
-            <div className={classes.heroButtons}>
-              <Grid container spacing={2} justify="center">
-                <Grid item>
-                  <Button variant="contained" color="primary">
-                    Main call to action
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Secondary action
-                  </Button>
-                </Grid>
-              </Grid>
-            </div>
-          </Container>
+            <Carrousel/>
         </div>
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
@@ -313,4 +242,80 @@ export default function App() {
       {/* End footer */}
     </React.Fragment>
   );
+}
+
+const BootstrapButton = withStyles({
+  root: {
+    boxShadow: 'none',
+    textTransform: 'none',
+    fontSize: 16,
+    padding: '6px 12px',
+    border: '1px solid',
+    lineHeight: 1.5,
+    backgroundColor: '#006853',
+    borderColor: '#006853',
+    borderRight:'14px',
+    borderLeft:'14px',
+    
+    '&:hover': {
+      backgroundColor: '#015645',
+      borderColor: '#015645',
+      boxShadow: 'none',
+    },
+    '&:active': {
+      boxShadow: 'none',
+      backgroundColor: '#025040',
+      borderColor: '#025040',
+    },
+  },
+})(Button);
+
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {"Copyright © "}
+      <Link color="inherit" href="https://material-ui.com/">
+        Your Website
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
+
+
+
+const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+
+
+function useWindowSize() {
+  // Initialize state with undefined width/height so server and client renders match
+  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+
+  useEffect(() => {
+    // Handler to call on window resize
+    function handleResize() {
+      // Set window width/height to state
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); // Empty array ensures that effect is only run on mount
+
+  return windowSize;
 }
