@@ -61,6 +61,13 @@ export default function App() {
       marginRight: theme.spacing(2),
     },
     title: {
+      [theme.breakpoints.down("xs")]: {
+        flexGrow: 1
+      },
+      fontFamily: "Open Sans",
+
+    },
+    subtitle: {
       display: "none",
       [theme.breakpoints.up("sm")]: {
         display: "block",
@@ -139,9 +146,10 @@ export default function App() {
             <BootstrapButton aria-label="show 4 new mails" color="inherit">
               <Badge color="secondary">
                 <Typography
-                  className={classes.title}
+                  className={classes.subtitle}
                   variant="subtitle1"
                   noWrap
+                  variant="h6"
                 >
                   Cursos
                 </Typography>
@@ -151,7 +159,7 @@ export default function App() {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Typography className={classes.title} variant="h6" noWrap>
+              <Typography className={classes.subtitle} variant="h6" noWrap>
                 Acerca de
               </Typography>
             </BootstrapButton>
@@ -159,7 +167,7 @@ export default function App() {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Typography className={classes.title} variant="h6" noWrap>
+              <Typography className={classes.subtitle} variant="h6" noWrap>
                 Contacto
               </Typography>
             </BootstrapButton>
@@ -169,7 +177,7 @@ export default function App() {
               aria-haspopup="true"
               color="inherit"
             >
-              <Typography className={classes.title} variant="h6" noWrap>
+              <Typography className={classes.subtitle} variant="h6" noWrap>
                 Login
               </Typography>
             </BootstrapButton>
