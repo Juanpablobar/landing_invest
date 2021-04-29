@@ -40,7 +40,7 @@ export default function App() {
     heroContent: {
       margin: "auto",
       minWidth: 275,
-      width: size.width - 25,
+      width: size.width - 50,
       padding: 10,
       alignItems: "center",
       justifyContent: "center",
@@ -225,8 +225,15 @@ export default function App() {
         <div
           id="courses"
           name="courses"
-          style={{ height: size.height, backgroundColor: "#bed6ce" }}
-        ></div>
+          style={{ minHeight:250, maxHeight: size.height - 299, backgroundColor: "#bed6ce",display:"flex",flexWrap:"wrap", justifyContent:"center", alignItems:"center", alignContent:"space-between"}}
+        >
+          <div style={{ minHeight:250, width:size.width-50, maxHeight: size.height - 299, display:"flex",flexWrap:"wrap", justifyContent:"center", alignItems:"center",}}>
+            <div style={{ backgroundColor:"#000",minWidth:300, minHeight:120,  maxHeight:150, flexGrow:1, marginLeft:24, marginRight:24, marginTop:12, marginBottom:12 }}></div>
+            <div style={{ backgroundColor:"#fff",minWidth:300, minHeight:120, maxHeight:150, flexGrow:1, marginLeft:24, marginRight:24, marginTop:12, marginBottom:12 }}></div>
+            <div style={{ backgroundColor:"#000",minWidth:300, minHeight:120, maxHeight:150, flexGrow:1, marginLeft:24, marginRight:24, marginTop:12, marginBottom:12 }}></div>
+          </div>
+
+        </div>
         {/* Acerca de */}
         <div
           id="about"
