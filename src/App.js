@@ -30,10 +30,8 @@ const whatsappPage = () => {
   window.open("https://api.whatsapp.com/send?phone=522228811327");
 };
 
-
 export default function App() {
   const size = useWindowSize();
-
 
   const useStyles = makeStyles((theme) => ({
     icon: {
@@ -230,7 +228,139 @@ export default function App() {
           style={{ height: size.height, backgroundColor: "#bed6ce" }}
         ></div>
         {/* Acerca de */}
-        <div id="about" name="about" style={{ height: size.height }}></div>
+        <div
+          id="about"
+          name="about"
+          style={{
+            minHeight: size.height - 299,
+            paddingTop: 72,
+            paddingBottom: 72,
+          }}
+        >
+          {size.width > 600 ? (
+            <div>
+              <Typography
+                style={{
+                  textAlign: "center",
+                  paddingInline: 96,
+                  color: "#006853",
+                  fontWeight: "bold",
+                }}
+                variant="h4"
+              >
+                Acerca de nosotros
+              </Typography>
+              <Typography
+                style={{
+                  textAlign: "center",
+                  paddingInline: 96,
+                  paddingTop: 24,
+                  fontSize: 24,
+                  fontWeight: "lighter",
+                }}
+                variant="subtitle1"
+              >
+                ¿Quiénes somos? Conoce nuestras principales actividades.
+              </Typography>
+
+              <Typography
+                style={{
+                  textAlign: "justify",
+                  paddingTop: 24,
+                  fontWeight: "bold",
+                  paddingInline: 96,
+                  columnCount: 2,
+                  columnGap: 30,
+                }}
+                variant="body1"
+              >
+                La Academia de Psicoanálisis Madrid SL -NIF B02653467- es una
+                Institución Formativa y de Capacitación profesional con base en
+                España, dirigida por el psicoanalista Guillermo Miatello. Su
+                Oferta Académica comprende una serie de Cursos Presenciales y
+                Online especializados en distintas áreas del quehacer
+                psicoanalítico. El equipo de trabajo se encuentra conformado por
+                prestigiosos profesionales en ejercicio activo de la profesión,
+                lo que le confiere a la Academia una fuerte impronta clínica
+                desde el primer momento de cursado. La metodología de trabajo es
+                la Transmisión Transferencial: una novedosa articulación entre
+                la Teoría y la Clínica que recurre a la casuística, así como a
+                producciones del cine, la música y la literatura en las que se
+                expresa la complejidad de las ideas psicoanalíticas. ﻿La
+                Academia de Psicoanálisis cuenta también con una Sección Clínica
+                que brinda terapia presencial y online, con un equipo
+                especializado en el tratamiento de las distintas formas de
+                manifestación del malestar psíquico: ansiedad, celos, depresión,
+                problemas de pareja, miedos, estrés, habilidades sociales,
+                soledad, dificultades de autoestima, problemas familiares,
+                laborales, insatisfacción, irascibilidad, adicciones, soledad,
+                depresión, dificultades académicas, económicas y enfermedades
+                psicosomáticas.
+              </Typography>
+            </div>
+          ) : (
+            <div>
+              <Typography
+                style={{
+                  textAlign: "center",
+                  paddingInline: 48,
+                  color: "#006853",
+                  fontWeight: "bold",
+                }}
+                variant="h4"
+              >
+                Acerca de nosotros
+              </Typography>
+              <Typography
+                style={{
+                  textAlign: "center",
+                  paddingInline: 48,
+                  paddingTop: 24,
+                  fontSize: 24,
+                  fontWeight: "lighter",
+                }}
+                variant="subtitle1"
+              >
+                ¿Quiénes somos? Conoce nuestras principales actividades.
+              </Typography>
+
+              <Typography
+                style={{
+                  textAlign: "justify",
+                  paddingTop: 24,
+                  fontWeight: "bold",
+                  paddingInline: 48,
+                  columnCount: 1,
+                  columnGap: 30,
+                }}
+                variant="body1"
+              >
+                La Academia de Psicoanálisis Madrid SL -NIF B02653467- es una
+                Institución Formativa y de Capacitación profesional con base en
+                España, dirigida por el psicoanalista Guillermo Miatello. Su
+                Oferta Académica comprende una serie de Cursos Presenciales y
+                Online especializados en distintas áreas del quehacer
+                psicoanalítico. El equipo de trabajo se encuentra conformado por
+                prestigiosos profesionales en ejercicio activo de la profesión,
+                lo que le confiere a la Academia una fuerte impronta clínica
+                desde el primer momento de cursado. La metodología de trabajo es
+                la Transmisión Transferencial: una novedosa articulación entre
+                la Teoría y la Clínica que recurre a la casuística, así como a
+                producciones del cine, la música y la literatura en las que se
+                expresa la complejidad de las ideas psicoanalíticas. ﻿La
+                Academia de Psicoanálisis cuenta también con una Sección Clínica
+                que brinda terapia presencial y online, con un equipo
+                especializado en el tratamiento de las distintas formas de
+                manifestación del malestar psíquico: ansiedad, celos, depresión,
+                problemas de pareja, miedos, estrés, habilidades sociales,
+                soledad, dificultades de autoestima, problemas familiares,
+                laborales, insatisfacción, irascibilidad, adicciones, soledad,
+                depresión, dificultades académicas, económicas y enfermedades
+                psicosomáticas.
+              </Typography>
+            </div>
+          )}
+        </div>
         {/* Contacto */}
         <div
           id="contact"
@@ -291,13 +421,12 @@ function FloatingActionButton() {
 
   return (
     <div className={classes.root1}>
-      <Fab style={{backgroundColor:"#fff"}}  aria-label="whatsapp">
-      <CardMedia
-        onClick={() => whatsappPage()}
-
-        image={"../whatsapp.png"}
-        style={{width:40,height:40}}
-      />
+      <Fab style={{ backgroundColor: "#fff" }} aria-label="whatsapp">
+        <CardMedia
+          onClick={() => whatsappPage()}
+          image={"../whatsapp.png"}
+          style={{ width: 40, height: 40 }}
+        />
       </Fab>
     </div>
   );
