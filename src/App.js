@@ -20,6 +20,10 @@ import Carrousel from "./components/Carrousel";
 export default function App() {
   const size = useWindowSize();
 
+  const routeChange = (section) => {
+    window.location.href = "/#" + section;
+  };
+
   const useStyles = makeStyles((theme) => ({
     icon: {
       marginRight: theme.spacing(2),
@@ -62,10 +66,9 @@ export default function App() {
     },
     title: {
       [theme.breakpoints.down("xs")]: {
-        flexGrow: 1
+        flexGrow: 1,
       },
       fontFamily: "Open Sans",
-
     },
     subtitle: {
       display: "none",
@@ -137,13 +140,23 @@ export default function App() {
             flexDirection: "row",
           }}
         >
+          <BootstrapButton
+              onClick={() => routeChange("")}
+              aria-label="show 4 new mails"
+              color="inherit"
+            >
           <Typography className={classes.title} variant="h6" noWrap>
             {data.nombre}
           </Typography>
+          </BootstrapButton>
 
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <BootstrapButton aria-label="show 4 new mails" color="inherit">
+            <BootstrapButton
+              onClick={() => routeChange("courses")}
+              aria-label="show 4 new mails"
+              color="inherit"
+            >
               <Badge color="secondary">
                 <Typography
                   className={classes.subtitle}
@@ -156,6 +169,7 @@ export default function App() {
               </Badge>
             </BootstrapButton>
             <BootstrapButton
+              onClick={() => routeChange("about")}
               aria-label="show 17 new notifications"
               color="inherit"
             >
@@ -164,6 +178,7 @@ export default function App() {
               </Typography>
             </BootstrapButton>
             <BootstrapButton
+              onClick={() => routeChange("contact")}
               aria-label="show 17 new notifications"
               color="inherit"
             >
@@ -172,6 +187,7 @@ export default function App() {
               </Typography>
             </BootstrapButton>
             <BootstrapButton
+              onClick={() => routeChange("login")}
               edge="end"
               aria-label="account of current user"
               aria-haspopup="true"
@@ -197,13 +213,26 @@ export default function App() {
           <Carrousel />
         </div>
         {/* Cursos */}
-        <div style={{ height: size.height, backgroundColor: "#bed6ce" }}></div>
+        <div
+          id="courses"
+          name="courses"
+          style={{ height: size.height, backgroundColor: "#bed6ce" }}
+        ></div>
         {/* Acerca de */}
-        <div style={{ height: size.height }}></div>
+        <div 
+        id="about"
+        name="about"
+        style={{ height: size.height }}></div>
         {/* Contacto */}
-        <div style={{ height: size.height, backgroundColor: "#bed6ce" }}></div>
+        <div 
+        id="contact"
+        name="contact"
+        style={{ height: size.height, backgroundColor: "#bed6ce" }}></div>
         {/* login */}
-        <div style={{ height: size.height, backgroundColor: "#222222" }}></div>
+        <div 
+        id="login"
+        name="login"
+        style={{ height: size.height, backgroundColor: "#222222" }}></div>
       </main>
       <div></div>
       <footer className={classes.footer}>
