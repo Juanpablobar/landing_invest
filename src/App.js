@@ -22,12 +22,18 @@ import EditIcon from "@material-ui/icons/Edit";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import NavigationIcon from "@material-ui/icons/Navigation";
 
+const routeChange = (section) => {
+  window.location.href = "/#" + section;
+};
+
+const whatsappPage = () => {
+  window.open("https://api.whatsapp.com/send?phone=522228811327");
+};
+
+
 export default function App() {
   const size = useWindowSize();
 
-  const routeChange = (section) => {
-    window.location.href = "/#" + section;
-  };
 
   const useStyles = makeStyles((theme) => ({
     icon: {
@@ -287,6 +293,8 @@ function FloatingActionButton() {
     <div className={classes.root1}>
       <Fab style={{backgroundColor:"#fff"}}  aria-label="whatsapp">
       <CardMedia
+        onClick={() => whatsappPage()}
+
         image={"../whatsapp.png"}
         style={{width:40,height:40}}
       />
