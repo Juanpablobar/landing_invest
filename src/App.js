@@ -7,12 +7,24 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import data from "./data";
-import { fade, makeStyles, withStyles } from "@material-ui/core/styles";
+import {
+  fade,
+  makeStyles,
+  withStyles,
+  ThemeProvider,
+  createMuiTheme,
+} from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
 import Carrousel from "./components/Carrousel";
 import Fab from "@material-ui/core/Fab";
 import TextField from "@material-ui/core/TextField";
+
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: ["Raleway"].join(","),
+  },
+});
 
 const routeChange = (section) => {
   window.location.href = "/#" + section;
@@ -150,9 +162,13 @@ export default function App() {
             aria-label="show 4 new mails"
             color="inherit"
           >
-            <Typography className={classes.title} variant="h6" noWrap>
-              {data.nombre}
-            </Typography>
+            <Badge color="secondary">
+                <ThemeProvider theme={theme}>
+                      <Typography  noWrap >
+                        {data.nombre}
+                      </Typography>
+                </ThemeProvider>
+              </Badge>
           </BootstrapButton>
 
           <div className={classes.grow} />
@@ -163,14 +179,11 @@ export default function App() {
               color="inherit"
             >
               <Badge color="secondary">
-                <Typography
-                  className={classes.subtitle}
-                  variant="subtitle1"
-                  noWrap
-                  variant="h6"
-                >
-                  Cursos
-                </Typography>
+                <ThemeProvider theme={theme}>
+                      <Typography  noWrap>
+                        CURSOS
+                      </Typography>
+                </ThemeProvider>
               </Badge>
             </BootstrapButton>
             <BootstrapButton
@@ -178,9 +191,13 @@ export default function App() {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Typography className={classes.subtitle} variant="h6" noWrap>
-                Acerca de
-              </Typography>
+              <Badge color="secondary">
+                <ThemeProvider theme={theme}>
+                      <Typography  noWrap >
+                        ACERCA DE
+                      </Typography>
+                </ThemeProvider>
+              </Badge>
             </BootstrapButton>
             <BootstrapButton
               onClick={() => routeChange("login")}
@@ -189,9 +206,13 @@ export default function App() {
               aria-haspopup="true"
               color="inherit"
             >
-              <Typography className={classes.subtitle} variant="h6" noWrap>
-                Pre-registro
-              </Typography>
+              <Badge color="secondary">
+                <ThemeProvider theme={theme}>
+                      <Typography  noWrap >
+                        PRE-REGISTRO
+                      </Typography>
+                </ThemeProvider>
+              </Badge>
             </BootstrapButton>
           </div>
           <div className={classes.sectionMobile}>
@@ -442,7 +463,7 @@ export default function App() {
               style={{
                 textAlign: "center",
                 paddingInline: 84,
-                paddingTop:24,
+                paddingTop: 24,
                 color: "#111111",
                 fontWeight: "bold",
               }}
@@ -471,13 +492,13 @@ export default function App() {
                 maxWidth: 800,
                 paddingTop: 24,
                 textAlign: "left",
-                paddingLeft:22
+                paddingLeft: 22,
               }}
               variant={"h5"}
             >
               Nombre
             </Typography>
-            <div style={{ maxWidth: 600, paddingRight:24, paddingLeft:24 }}>
+            <div style={{ maxWidth: 600, paddingRight: 24, paddingLeft: 24 }}>
               <TextField
                 fullWidth
                 size={"small"}
@@ -495,14 +516,13 @@ export default function App() {
                 maxWidth: 800,
                 paddingTop: 24,
                 textAlign: "left",
-                paddingLeft:22
-
+                paddingLeft: 22,
               }}
               variant={"h5"}
             >
               Email
             </Typography>
-            <div style={{ maxWidth: 600, paddingRight:24, paddingLeft:24 }}>
+            <div style={{ maxWidth: 600, paddingRight: 24, paddingLeft: 24 }}>
               <TextField
                 fullWidth
                 size={"small"}
@@ -519,14 +539,13 @@ export default function App() {
                 maxWidth: 800,
                 paddingTop: 24,
                 textAlign: "left",
-                paddingLeft:22
-
+                paddingLeft: 22,
               }}
               variant={"h5"}
             >
               Teléfono
             </Typography>
-            <div style={{ maxWidth: 600, paddingRight:24, paddingLeft:24 }}>
+            <div style={{ maxWidth: 600, paddingRight: 24, paddingLeft: 24 }}>
               <TextField
                 fullWidth
                 size={"small"}
@@ -538,7 +557,9 @@ export default function App() {
             </div>
 
             <div>
-              <BootstrapButton style={{ color: "#fff", marginLeft:24, marginTop:24 }}>
+              <BootstrapButton
+                style={{ color: "#fff", marginLeft: 24, marginTop: 24 }}
+              >
                 Enviar
               </BootstrapButton>
             </div>
