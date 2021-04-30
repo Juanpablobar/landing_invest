@@ -261,6 +261,7 @@ export default function App() {
             style={{
               minHeight: 250,
               width: size.width - 50,
+              minWidth:400,
               maxHeight: size.height - 299,
               display: "flex",
               flexWrap: "wrap",
@@ -271,7 +272,7 @@ export default function App() {
             <div
               style={{
                 backgroundColor: "#000",
-                minWidth: 300,
+                minWidth: 400,
                 minHeight: 120,
                 maxHeight: 150,
                 flexGrow: 1,
@@ -284,7 +285,7 @@ export default function App() {
             <div
               style={{
                 backgroundColor: "#fff",
-                minWidth: 300,
+                minWidth: 400,
                 minHeight: 120,
                 maxHeight: 150,
                 flexGrow: 1,
@@ -297,7 +298,7 @@ export default function App() {
             <div
               style={{
                 backgroundColor: "#000",
-                minWidth: 300,
+                minWidth: 400,
                 minHeight: 120,
                 maxHeight: 150,
                 flexGrow: 1,
@@ -457,7 +458,7 @@ export default function App() {
             flexWrap: "wrap",
           }}
         >
-          <div style={{ flex: 5 }}>
+          <div style={{ flex: 5, minWidth:375 }}>
             <Typography
               variant={"h3"}
               style={{
@@ -473,9 +474,9 @@ export default function App() {
             <Typography
               style={{
                 textAlign: "center",
-                paddingInline: 96,
+                paddingInline: 84,
                 color: "#006853",
-                maxWidth: 800,
+                maxWidth: 800, 
                 paddingTop: 24,
               }}
               variant={"h6"}
@@ -484,7 +485,7 @@ export default function App() {
               primera mensualidad.
             </Typography>
           </div>
-          <div style={{ flex: 6 }}>
+          <div style={{ flex: 6, paddingLeft:48, minWidth:375 }}>
             <Typography
               style={{
                 textAlign: "center",
