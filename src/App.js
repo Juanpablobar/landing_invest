@@ -261,7 +261,6 @@ export default function App() {
             style={{
               minHeight: 250,
               width: size.width - 50,
-              minWidth:400,
               maxHeight: size.height - 299,
               display: "flex",
               flexWrap: "wrap",
@@ -282,9 +281,9 @@ export default function App() {
                 marginBottom: 12,
               }}
             ></div>
-            <div
+           <div
               style={{
-                backgroundColor: "#fff",
+                backgroundColor: "#000",
                 minWidth: 400,
                 minHeight: 120,
                 maxHeight: 150,
@@ -315,7 +314,6 @@ export default function App() {
           id="about"
           name="about"
           style={{
-            minHeight: size.height - 299,
             paddingTop: 72,
             paddingBottom: 72,
           }}
@@ -450,12 +448,13 @@ export default function App() {
           name="login"
           style={{
             backgroundColor: "#bed6ce",
-            minHeight: size.height - 299,
             paddingTop: 72,
             paddingBottom: 72,
             display: "flex",
             flexDirection: "row",
             flexWrap: "wrap",
+            alignContent:"center",
+            alignItems:"center"
           }}
         >
           <div style={{ flex: 5, minWidth:375 }}>
@@ -464,7 +463,6 @@ export default function App() {
               style={{
                 textAlign: "center",
                 paddingInline: 84,
-                paddingTop: 24,
                 color: "#111111",
                 fontWeight: "bold",
               }}
