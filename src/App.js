@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Grid from "@material-ui/core/Grid";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 import data from "./data";
 import { fade, makeStyles, withStyles } from "@material-ui/core/styles";
@@ -17,10 +12,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
 import Carrousel from "./components/Carrousel";
 import Fab from "@material-ui/core/Fab";
-import AddIcon from "@material-ui/icons/Add";
-import EditIcon from "@material-ui/icons/Edit";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import NavigationIcon from "@material-ui/icons/Navigation";
+import TextField from "@material-ui/core/TextField";
 
 const routeChange = (section) => {
   window.location.href = "/#" + section;
@@ -64,7 +56,11 @@ export default function App() {
       flexGrow: 1,
     },
     footer: {
-      backgroundColor: theme.palette.background.paper,
+      backgroundColor: "#00956e",
+      padding: theme.spacing(6),
+    },
+    footer2: {
+      backgroundColor: "#000",
       padding: theme.spacing(6),
     },
     grow: {
@@ -187,15 +183,6 @@ export default function App() {
               </Typography>
             </BootstrapButton>
             <BootstrapButton
-              onClick={() => routeChange("contact")}
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Typography className={classes.subtitle} variant="h6" noWrap>
-                Contacto
-              </Typography>
-            </BootstrapButton>
-            <BootstrapButton
               onClick={() => routeChange("login")}
               edge="end"
               aria-label="account of current user"
@@ -203,7 +190,7 @@ export default function App() {
               color="inherit"
             >
               <Typography className={classes.subtitle} variant="h6" noWrap>
-                Login
+                Pre-registro
               </Typography>
             </BootstrapButton>
           </div>
@@ -225,14 +212,81 @@ export default function App() {
         <div
           id="courses"
           name="courses"
-          style={{ minHeight:250, maxHeight: size.height - 299, backgroundColor: "#bed6ce",display:"flex",flexWrap:"wrap", justifyContent:"center", alignItems:"center", alignContent:"space-between"}}
+          style={{
+            minHeight: size.height - 299,
+            paddingTop: 72,
+            paddingBottom: 72,
+            minHeight: 250,
+            backgroundColor: "#bed6ce",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            alignItems: "center",
+            alignContent: "space-between",
+          }}
         >
-          <div style={{ minHeight:250, width:size.width-50, maxHeight: size.height - 299, display:"flex",flexWrap:"wrap", justifyContent:"center", alignItems:"center",}}>
-            <div style={{ backgroundColor:"#000",minWidth:300, minHeight:120,  maxHeight:150, flexGrow:1, marginLeft:24, marginRight:24, marginTop:12, marginBottom:12 }}></div>
-            <div style={{ backgroundColor:"#fff",minWidth:300, minHeight:120, maxHeight:150, flexGrow:1, marginLeft:24, marginRight:24, marginTop:12, marginBottom:12 }}></div>
-            <div style={{ backgroundColor:"#000",minWidth:300, minHeight:120, maxHeight:150, flexGrow:1, marginLeft:24, marginRight:24, marginTop:12, marginBottom:12 }}></div>
+          <Typography
+            style={{
+              textAlign: "center",
+              paddingInline: 96,
+              color: "#006853",
+              fontWeight: "bold",
+            }}
+            variant="h4"
+          >
+            Nuestros cursos
+          </Typography>
+          <div
+            style={{
+              minHeight: 250,
+              width: size.width - 50,
+              maxHeight: size.height - 299,
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: "#000",
+                minWidth: 300,
+                minHeight: 120,
+                maxHeight: 150,
+                flexGrow: 1,
+                marginLeft: 24,
+                marginRight: 24,
+                marginTop: 12,
+                marginBottom: 12,
+              }}
+            ></div>
+            <div
+              style={{
+                backgroundColor: "#fff",
+                minWidth: 300,
+                minHeight: 120,
+                maxHeight: 150,
+                flexGrow: 1,
+                marginLeft: 24,
+                marginRight: 24,
+                marginTop: 12,
+                marginBottom: 12,
+              }}
+            ></div>
+            <div
+              style={{
+                backgroundColor: "#000",
+                minWidth: 300,
+                minHeight: 120,
+                maxHeight: 150,
+                flexGrow: 1,
+                marginLeft: 24,
+                marginRight: 24,
+                marginTop: 12,
+                marginBottom: 12,
+              }}
+            ></div>
           </div>
-
         </div>
         {/* Acerca de */}
         <div
@@ -368,33 +422,157 @@ export default function App() {
             </div>
           )}
         </div>
-        {/* Contacto */}
-        <div
-          id="contact"
-          name="contact"
-          style={{ height: size.height, backgroundColor: "#bed6ce" }}
-        ></div>
-        {/* login */}
+        {/* Login */}
         <div
           id="login"
           name="login"
-          style={{ height: size.height, backgroundColor: "#222222" }}
-        ></div>
+          style={{
+            backgroundColor: "#bed6ce",
+            minHeight: size.height - 299,
+            paddingTop: 72,
+            paddingBottom: 72,
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "wrap",
+          }}
+        >
+          <div style={{ flex: 5 }}>
+            <Typography
+              variant={"h3"}
+              style={{
+                textAlign: "center",
+                paddingInline: 84,
+                paddingTop:24,
+                color: "#111111",
+                fontWeight: "bold",
+              }}
+            >
+              Realiza tu pre-registro
+            </Typography>
+            <Typography
+              style={{
+                textAlign: "center",
+                paddingInline: 96,
+                color: "#006853",
+                maxWidth: 800,
+                paddingTop: 24,
+              }}
+              variant={"h6"}
+            >
+              Bríndanos tus datos de contacto y obtén un 30% de descuento en tu
+              primera mensualidad.
+            </Typography>
+          </div>
+          <div style={{ flex: 6 }}>
+            <Typography
+              style={{
+                textAlign: "center",
+                color: "#006853",
+                maxWidth: 800,
+                paddingTop: 24,
+                textAlign: "left",
+                paddingLeft:22
+              }}
+              variant={"h5"}
+            >
+              Nombre
+            </Typography>
+            <div style={{ maxWidth: 600, paddingRight:24, paddingLeft:24 }}>
+              <TextField
+                fullWidth
+                size={"small"}
+                style={{
+                  backgroundColor: "#fff",
+                }}
+                variant={"filled"}
+              ></TextField>
+            </div>
+
+            <Typography
+              style={{
+                textAlign: "center",
+                color: "#006853",
+                maxWidth: 800,
+                paddingTop: 24,
+                textAlign: "left",
+                paddingLeft:22
+
+              }}
+              variant={"h5"}
+            >
+              Email
+            </Typography>
+            <div style={{ maxWidth: 600, paddingRight:24, paddingLeft:24 }}>
+              <TextField
+                fullWidth
+                size={"small"}
+                style={{
+                  backgroundColor: "#fff",
+                }}
+                variant={"filled"}
+              ></TextField>
+            </div>
+            <Typography
+              style={{
+                textAlign: "center",
+                color: "#006853",
+                maxWidth: 800,
+                paddingTop: 24,
+                textAlign: "left",
+                paddingLeft:22
+
+              }}
+              variant={"h5"}
+            >
+              Teléfono
+            </Typography>
+            <div style={{ maxWidth: 600, paddingRight:24, paddingLeft:24 }}>
+              <TextField
+                fullWidth
+                size={"small"}
+                style={{
+                  backgroundColor: "#fff",
+                }}
+                variant={"filled"}
+              ></TextField>
+            </div>
+
+            <div>
+              <BootstrapButton style={{ color: "#fff", marginLeft:24, marginTop:24 }}>
+                Enviar
+              </BootstrapButton>
+            </div>
+          </div>
+        </div>
+        {/* login */}
       </main>
       <div></div>
       <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
+        <Typography
+          variant="h6"
+          align="center"
+          style={{ color: "#fff" }}
+          gutterBottom
+        >
+          Investor Academy
         </Typography>
         <Typography
-          variant="subtitle1"
+          style={{ color: "#fff" }}
+          variant="subtitle2"
           align="center"
           color="textSecondary"
           component="p"
         >
-          Something here to give the footer a purpose!
+          Diagonal Defensores de la República #237 Col. Maestro Federal C.P
+          72080 Puebla, Pue.
         </Typography>
+      </footer>
+      <footer
+        style={{ height: 12, backgroundColor: "#000" }}
+        className={classes.footer2}
+      >
         <Copyright />
+        <div style={{ height: 24, backgroundColor: "#000" }}></div>
       </footer>
       {/* End footer */}
       <div
@@ -467,13 +645,24 @@ const BootstrapButton = withStyles({
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography style={{ color: "#fff" }} variant="body2" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      <Link
+        color="inherit"
+        style={{ color: "#fff" }}
+        href="https://investoracademy.mx/"
+      >
+        Investor Academy,
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
+      <Typography></Typography>
+      <Link color="inherit" href="https://investoracademy.mx/">
+        Aviso de Privacidad
+      </Link>{" "}
+      <Link color="inherit" href="https://investoracademy.mx/">
+        Terminos de Servicio
+      </Link>
     </Typography>
   );
 }
